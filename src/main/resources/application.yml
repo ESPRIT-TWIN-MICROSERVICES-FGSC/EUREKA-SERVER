@@ -1,12 +1,12 @@
 server:
-  port: ${PORT:5000}
+  port: ${PORT:8761}
 security:
   user:
     password: ${eureka.password}
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: fgsc-eureka-server.herokuapp.com
   client:
     registerWithEureka: false
     fetchRegistry: false
