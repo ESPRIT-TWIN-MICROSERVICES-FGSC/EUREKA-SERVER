@@ -1,16 +1,23 @@
+spring:
+  application:
+    name: ${springboot.app.name:fgsc-eureka-server}
 server:
-  port: ${PORT:8761}
-security:
-  user:
-    password: ${eureka.password}
-
+  port: ${PORT:5000}
 eureka:
   instance:
-    hostname: fgsc-eureka-server.herokuapp.com
+    hostname: ${DOMAIN_NAME:http://localhost}
     prefer-ip-address: true
+    app-group-name: fgsc
+    appname: ${springboot.app.name:fgsc-eureka-server}
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-  password: ${EUREKA_USER_PASSWORD:password}
+      defaultZone: ${eureka.instance.hostname}:${server.port}/eureka/
+#  password: ${EUREKA_USER_PASSWORD:password}
+#  username: ${EUREKA_USER_NAME:username}
+#security:
+#  user:
+#    password: ${eureka.password:password}
+#    username: ${EUREKA_USER_NAME:username}
+
